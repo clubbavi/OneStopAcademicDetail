@@ -1,5 +1,7 @@
-<h1>New chapter</h1>
+<h2 class="page-header">New Chapter
+  <div class="pull-right">
+    <%= link_to 'Back', chapters_path, :class => "btn btn-warning" %>
+  </div>
+</h2>
 
 <%= render 'form' %>
-
-<%= link_to 'Back', chapters_path %>

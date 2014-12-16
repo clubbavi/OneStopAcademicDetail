@@ -1,13 +1,35 @@
 <%= simple_form_for(@chapter) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :description %>
-    <%= f.input :syllabus_id %>
-  </div>
+  <div class="col-md-6 col-md-offset-3">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Chapter</h3>
+        </div>
+        <div class="panel-body">
+          <form role="form">
+            <div class="form-group">
+              <label>Name</label>
+              <%= f.text_field :name, autofocus: true, :class => "form-control", :placeholder => "Name" %>
+            </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+            <div class="form-group">
+              <label>Description</label>
+              <%= f.text_field :description, :class => "form-control", :placeholder => "Description" %>
+            </div>
+
+            <div class="form-group">
+              <label>Course</label><br>
+			  <%= f.select :syllabus_id, Syllabus.all.map { |r| [r.name, r.id] }, :class => "form-control", :prompt => '-- Select --' %>
+            </div>
+
+            <div class="form-group">
+              <div class="col-md-6 col-md-offset-3">
+                <%= f.button :submit, "Create", :class => "btn btn-success btn-block" %>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
 <% end %>
