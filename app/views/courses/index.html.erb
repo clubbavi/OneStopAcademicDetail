@@ -1,6 +1,11 @@
-<h1>Listing courses</h1>
+<h2 class="page-header">Courses
+  <div class="pull-right">
+    <%= link_to 'New Course', new_course_path, :class => "btn btn-warning" %>
+  </div>
+</h2>
 
-<table>
+<div class="table-responsive">
+<table class="table table-bordered">
   <thead>
     <tr>
       <th>Name</th>
@@ -23,7 +28,4 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Course', new_course_path %>
+</div>

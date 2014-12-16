@@ -1,6 +1,7 @@
-<h1>Editing course</h1>
+<h2 class="page-header">Edit Course
+  <div class="pull-right">
+    <%= link_to 'Back', courses_path, :class => "btn btn-warning" %>
+  </div>
+</h2>
 
 <%= render 'form' %>
-
-<%= link_to 'Show', @course %> |
-<%= link_to 'Back', courses_path %>

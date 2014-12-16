@@ -1,7 +1,7 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy]
 
-  respond_to :html
+  respond_to :html, :json
 
   def index
     @courses = Course.all
@@ -14,6 +14,7 @@ class CoursesController < ApplicationController
 
   def new
     @course = Course.new
+    @course.syllabus = Syllabus.new
     respond_with(@course)
   end
 
@@ -21,6 +22,7 @@ class CoursesController < ApplicationController
   end
 
   def create
+    puts "PARAMS---------#{course_params.inspect}"
     @course = Course.new(course_params)
     @course.save
     respond_with(@course)
@@ -42,6 +44,6 @@ class CoursesController < ApplicationController
     end
 
     def course_params
-      params.require(:course).permit(:name, :description, :short_form)
+      params.require(:course).permit(:name, :description, :short_form, syllabus_attributes: [:id, :name, :description, :course_id])
     end
 end
